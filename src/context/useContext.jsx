@@ -30,7 +30,7 @@ export function UserContextProvider({ children }) {
 
   return (
     <UserContext.Provider
-      value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs,news, setNews }}
+      value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs}}
     >
       <div>{children}</div>
     </UserContext.Provider>
