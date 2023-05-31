@@ -29,7 +29,7 @@ const Header = () => {
 
           <div>
             <Link className="crqz" to={"/createquiz"}>
-              Create
+              Creates
             </Link>
           </div>
         </nav>
