@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import MarsLogo from "../../assets/mars-logo.png";
+import AllGames from "../../components/games/AllGames";
 import "./Main.css";
 
 const MainPage = () => {
@@ -19,7 +20,7 @@ const MainPage = () => {
                 <Link  className="active" to={'/main'}>Home</Link>
               </li>
               <li>
-                <Link>Library</Link>
+                <Link to={'/main/library'}>Library</Link>
               </li>
               <li>
                 <Link>Add News</Link>
@@ -34,6 +35,7 @@ const MainPage = () => {
           </nav>
         </div>
       </header>
+      <Outlet />
     </div>
   );
 };

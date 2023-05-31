@@ -8,14 +8,30 @@ export function UserContextProvider({ children }) {
     gamePin: "",
     disable: false,
   });
-  
-  const [hostUser,setHostUser]=useState({
-    name:'',
-    email:'',
-    password:''
-  })
+
+  const [hostUser, setHostUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const [quizs, setQuizs] = useState([
+    {
+      quiz: "Bu qaysi logo",
+      quizImg: "",
+      firstAnswer: "BMW",
+      secondAnswer: "Mersades",
+      thirdAnswer: "Bugatti",
+      fourthAnswer: "GM",
+      correctAnswer: "answer1",
+      quizType: "quiz",
+      timeLimit: "5 seconds",
+    },
+  ]);
+  console.log("quizs", quizs);
   return (
-    <UserContext.Provider value={{ user, setUser,hostUser, setHostUser }}>
+    <UserContext.Provider
+      value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs }}
+    >
       <div>{children}</div>
     </UserContext.Provider>
   );

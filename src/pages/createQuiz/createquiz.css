@@ -148,5 +148,110 @@
 
 .box_2 {
   width: 25%;
-  background: #000;
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.quiz_type{
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz_type label{
+  padding: 10px 0;
+  color: rgb(97, 97, 97);
+  font-size: 18px;
+  text-decoration: none;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.quiz_select {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgb(134, 134, 134);
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;;
+}
+
+.correct_answer{
+  width: 50%;
+  border-radius: 10px;
+  border: 1px solid rgb(134, 134, 134);
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  color: black;
+}
+.correct_answer option{
+  width: 50%;
+  height: 20px;
+  background: rgb(255, 255, 255);
+}
+
+.quiz_line{
+  width: 100%;
+  height: 1px;
+  background-color: rgb(187, 187, 187);
+  margin-top: 30px;
+}
+
+.quiz_settings{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.quiz_settings button{
+  padding: 10px 20px;
+  border: 1px solid rgb(165, 164, 164);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+  rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;;
+}
+
+.btn_exit{
+  background-color: rgb(129, 129, 129);
+  color: #fff;
+}
+.btn_delete{
+  background-color: rgb(207, 1, 1);
+  color: #fff;
+}
+.btn_save{
+  background-color: rgb(0, 89, 255);
+  color: #fff;
+}
+
+.btn_quiz{
+  margin-top: 20px;
+  background-color: rgb(0, 89, 255);
+  color: #fff;
+  padding: 10px 20px;
+  border: 1px solid rgb(165, 164, 164);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+  rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
 }
