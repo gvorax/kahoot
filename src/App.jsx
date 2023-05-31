@@ -9,6 +9,8 @@ import RegisterPage from './pages/CreatePage/RegisterPage/RegisterPage';
 import MainPage from './pages/MainPage/MainPage';
 import CreatePage from './pages/createQuiz/CreatePage';
 import AllGames from './components/games/AllGames';
+import Home from './components/home/Home';
+import AddNews from './components/addNews/AddNews';
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/main" element={<MainPage />} >
+          <Route path='' element={<Home />} />
           <Route path='library' element={<AllGames />} />
+          <Route path='addnews' element={<AddNews />} />
         </Route>
         <Route path="/createquiz" element={<CreatePage />} />
       </Routes>
