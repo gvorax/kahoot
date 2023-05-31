@@ -23,7 +23,7 @@ const Header = () => {
               <Link to={"/main/library"}>Library</Link>
             </li>
             <li>
-              <Link to={'/main/addnews'}>Add News</Link>
+              <Link to={'/main/addnews'}>Add Newsp</Link>
             </li>
           </ul>
 
