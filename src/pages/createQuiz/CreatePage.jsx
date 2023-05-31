@@ -132,7 +132,7 @@ const CreatePage = () => {
               </div>
               <div className="answer shadow">
                 <div className="flex">
-                  <div className="shape blue" style={{ color: "#fff" }}>
+                  <div className="shape blue" style={{ color: "#ffffff" }}>
                     <CgShapeRhombus size={40} />
                   </div>
                   <input
