@@ -27,10 +27,11 @@ export function UserContextProvider({ children }) {
       timeLimit: "5 seconds",
     },
   ]);
-  console.log("quizs", quizs);
+
+  console.log("news", news);
   return (
     <UserContext.Provider
-      value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs }}
+      value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs,news, setNews }}
     >
       <div>{children}</div>
     </UserContext.Provider>
