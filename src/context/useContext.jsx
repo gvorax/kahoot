@@ -28,7 +28,6 @@ export function UserContextProvider({ children }) {
     },
   ]);
 
-  console.log("news", news);
   return (
     <UserContext.Provider
       value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs,news, setNews }}
