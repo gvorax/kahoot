@@ -6,7 +6,7 @@ import { UserContext } from "../../../context/useContext";
 import "../LoginPage/login.css";
 
 const RegisterPage = () => {
-  const [redirect, setRedirect] = useState(false)
+  const {check, setCheck} = useContext(UserContext);
   const { hostUser, setHostUser } = useContext(UserContext);
   const nameRef = useRef()
   const emailRef = useRef();
@@ -16,15 +16,15 @@ const RegisterPage = () => {
     e.preventDefault();
     try {
       setHostUser({ ...hostUser, email: emailRef, password: passwordRef });
-    setRedirect(true)
+    setCheck(true);
     } catch (error) {
       alert('Something went wrong')
-      setRedirect(true)
+      setCheck(false)
     }
 
   };
 
-  if (redirect) {
+  if (check) {
     return <Navigate to={"/main"} />;
   }
   
@@ -48,7 +48,7 @@ const RegisterPage = () => {
           <div className="content">
             <div className="checkbox">
               <input type="checkbox" id="remember-me" />
-              <label for="remember-me">Remember me</label>
+              <label>Remember me</label>
             </div>
           </div>
           <div className="field">

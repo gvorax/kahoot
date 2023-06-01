@@ -41,10 +41,13 @@ export function UserContextProvider({ children }) {
     },
   ]);
 
+  const [check, setCheck] = useState(true)
   console.log("quizs",quizs)
+
+
   return (
     <UserContext.Provider
-      value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs}}
+      value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs,check, setCheck}}
     >
       <div>{children}</div>
     </UserContext.Provider>

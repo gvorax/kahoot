@@ -1,12 +1,11 @@
 import React, { useRef } from "react";
-import { useState } from "react";
 import { useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { UserContext } from "../../../context/useContext";
 import "./login.css";
 
 const LoginPage = () => {
-  const [redirect, setRedirect] = useState(false)
+  const {check, setCheck} = useContext(UserContext);
   const { hostUser, setHostUser } = useContext(UserContext);
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -14,10 +13,10 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setHostUser({ ...hostUser, email: emailRef, password: passwordRef });
-    setRedirect(true)
+    setCheck(true)
   };
 
-  if (redirect) {
+  if (check) {
     return <Navigate to={"/main"} />;
   }
 
@@ -37,7 +36,7 @@ const LoginPage = () => {
           <div className="content">
             <div className="checkbox">
               <input type="checkbox" id="remember-me" />
-              <label for="remember-me">Remember me</label>
+              <label>Remember me</label>
             </div>
             <div className="pass-link">
               <Link href="#">Forgot password?</Link>
