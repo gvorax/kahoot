@@ -28,7 +28,7 @@ function App() {
             <Route path="library" element={<AllGames />} />
             <Route path="addnews" element={<AddNews />} />
           </Route>
-          <Route path="/hostwaiting" element={<HostWaiting />} />
+          <Route path="/hostwaiting/:number" element={<HostWaiting />} />
           <Route path="/createquiz" element={<CreatePage />} />
         </Route>
         <Route path="*" element={<p>There's nothing here: 404!</p>} />

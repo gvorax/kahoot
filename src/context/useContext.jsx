@@ -16,38 +16,78 @@ export function UserContextProvider({ children }) {
   });
   const [quizs, setQuizs] = useState([
     {
-      id:1,
-      quiz: "Bu qaysi logo",
-      quizImg: "",
-      firstAnswer: "BMW",
-      secondAnswer: "Mersades",
-      thirdAnswer: "Bugatti",
-      fourthAnswer: "GM",
-      correctAnswer: "answer1",
-      quizType: "quiz",
-      timeLimit: "5 seconds",
+      id: 1,
+      quizs: [
+        {
+          quiz: "Bu qaysi logo",
+          quizImg: "",
+          firstAnswer: "BMW",
+          secondAnswer: "Mersades",
+          thirdAnswer: "Bugatti",
+          fourthAnswer: "GM",
+          correctAnswer: "answer1",
+          quizType: "quiz",
+          timeLimit: "5 seconds",
+        },
+        {
+          quiz: "Bu qaysi mashina",
+          quizImg: "",
+          firstAnswer: "BMW",
+          secondAnswer: "Mersades",
+          thirdAnswer: "Bugatti",
+          fourthAnswer: "GM",
+          correctAnswer: "answer1",
+          quizType: "quiz",
+          timeLimit: "5 seconds",
+        },
+      ],
+      quizNumber: undefined,
     },
     {
-      id:2,
-      quiz: "Mars qachon tashkil etilgan",
-      quizImg: "",
-      firstAnswer: "BMW",
-      secondAnswer: "Mersades",
-      thirdAnswer: "Bugatti",
-      fourthAnswer: "GM",
-      correctAnswer: "answer1",
-      quizType: "quiz",
-      timeLimit: "5 seconds",
+      id: 2,
+      quizs: [
+        {
+          quiz: "Bu qaysi mashina",
+          quizImg: "",
+          firstAnswer: "BMW",
+          secondAnswer: "Mersades",
+          thirdAnswer: "Bugatti",
+          fourthAnswer: "GM",
+          correctAnswer: "answer1",
+          quizType: "quiz",
+          timeLimit: "5 seconds",
+        },
+        {
+          quiz: "Bu qaysi logo",
+          quizImg: "",
+          firstAnswer: "BMW",
+          secondAnswer: "Mersades",
+          thirdAnswer: "Bugatti",
+          fourthAnswer: "GM",
+          correctAnswer: "answer1",
+          quizType: "quiz",
+          timeLimit: "5 seconds",
+        },
+      ],
+      quizNumber: undefined,
     },
   ]);
 
-  const [check, setCheck] = useState(true)
-  console.log("quizs",quizs)
-
+  const [check, setCheck] = useState(true);
+  console.log("quizs", quizs);
 
   return (
     <UserContext.Provider
-      value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs,check, setCheck}}
+      value={{
+        user,
+        setUser,
+        hostUser,
+        setHostUser,
+        quizs,
+        setQuizs,
+        check,
+        setCheck,
+      }}
     >
       <div>{children}</div>
     </UserContext.Provider>

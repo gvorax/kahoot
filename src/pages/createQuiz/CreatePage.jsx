@@ -12,10 +12,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 const CreatePage = () => {
+  const [err, setErr] = useState(false);
   const navigate = useNavigate();
   const { quizs, setQuizs } = useContext(UserContext);
   const [quiz, setQuiz] = useState({
-    id: undefined,
     quiz: "",
     quizImg: "",
     firstAnswer: "",
@@ -25,6 +25,11 @@ const CreatePage = () => {
     correctAnswer: "answer1",
     quizType: "quiz",
     timeLimit: "5 seconds",
+  });
+  const [quizOne, setQuizOne] = useState({
+    id: undefined,
+    quizs: [],
+    gamePin: undefined,
   });
   const emplyQuiz = {
     quiz: "",
@@ -38,11 +43,15 @@ const CreatePage = () => {
     timeLimit: "5 seconds",
   };
   const handleChange = (e) => {
-    setQuiz({ ...quiz, id: uuidv4(), [e.target.name]: e.target.value });
+    setQuiz({ ...quiz, [e.target.name]: e.target.value });
   };
 
   const handleChangeFile = (e) => {
     setQuiz({ ...quiz, [e.target.name]: e.target.files[0] });
+  };
+
+  const handleClear = () => {
+    setQuiz(emplyQuiz);
   };
 
   const addQuiz = (e) => {
@@ -54,42 +63,31 @@ const CreatePage = () => {
       quiz.thirdAnswer &&
       quiz.fourthAnswer
     ) {
-      if(quizs.length){
-        setQuizs([...quizs, quiz]);
-      }else{
-        setQuizs(quiz);
-      }
+      quizOne.quizs.push(quiz);
+      setQuiz(emplyQuiz);
+      setErr(false);
     } else {
       alert("Please insert data...");
+      setErr(true);
     }
-
-    console.log("quiz", quiz);
   };
 
   const saveQuiz = (e) => {
-    // e.preventDefault();
-    if (
-      quiz.quiz &&
-      quiz.quizImg &&
-      quiz.firstAnswer &&
-      quiz.secondAnswer &&
-      quiz.thirdAnswer &&
-      quiz.fourthAnswer
-    ) {
-      addQuiz();
+    let id = uuidv4();
+    addQuiz();
+    if (!err) {
+      const updated = Object.assign({}, quizOne, { id: id });
+      const updatedItem = [...quizs, updated];
+      setQuizs(updatedItem);
+      console.log("updatedItem",updatedItem);
       navigate("/main");
-    } else {
-      alert("Please insert data...");
     }
   };
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-  }
-
-  const handleClear = () => {
-    setQuiz(emplyQuiz);
   };
+
   return (
     <form action="#" onSubmit={handleSubmit}>
       <div className="box">
