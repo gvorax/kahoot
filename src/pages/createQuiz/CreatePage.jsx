@@ -54,7 +54,11 @@ const CreatePage = () => {
       quiz.thirdAnswer &&
       quiz.fourthAnswer
     ) {
-      setQuizs([...quizs, quiz]);
+      if(quizs.length){
+        setQuizs([...quizs, quiz]);
+      }else{
+        setQuizs(quiz);
+      }
     } else {
       alert("Please insert data...");
     }
@@ -79,11 +83,15 @@ const CreatePage = () => {
     }
   };
 
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+  }
+
   const handleClear = () => {
     setQuiz(emplyQuiz);
   };
   return (
-    <form action="#">
+    <form action="#" onSubmit={handleSubmit}>
       <div className="box">
         <div className="box_1">
           <div className="quiz">

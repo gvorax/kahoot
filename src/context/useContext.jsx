@@ -27,6 +27,18 @@ export function UserContextProvider({ children }) {
       quizType: "quiz",
       timeLimit: "5 seconds",
     },
+    {
+      id:2,
+      quiz: "Mars qachon tashkil etilgan",
+      quizImg: "",
+      firstAnswer: "BMW",
+      secondAnswer: "Mersades",
+      thirdAnswer: "Bugatti",
+      fourthAnswer: "GM",
+      correctAnswer: "answer1",
+      quizType: "quiz",
+      timeLimit: "5 seconds",
+    },
   ]);
 
   console.log("quizs",quizs)
