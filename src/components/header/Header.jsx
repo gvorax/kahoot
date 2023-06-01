@@ -23,13 +23,13 @@ const Header = () => {
               <Link to={"/main/library"}>Library</Link>
             </li>
             <li>
-              <Link to={'/main/addnews'}>Add Newsp</Link>
+              <Link to={'/main/addnews'}>Add News</Link>
             </li>
           </ul>
 
           <div>
             <Link className="crqz" to={"/createquiz"}>
-              Creates
+              Create
             </Link>
           </div>
         </nav>

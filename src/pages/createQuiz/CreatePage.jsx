@@ -8,12 +8,14 @@ import { CgShapeRhombus } from "react-icons/cg";
 import { BsFillTriangleFill } from "react-icons/bs";
 import { useContext } from "react";
 import { UserContext } from "../../context/useContext";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 const CreatePage = () => {
   const navigate = useNavigate();
   const { quizs, setQuizs } = useContext(UserContext);
   const [quiz, setQuiz] = useState({
+    id: undefined,
     quiz: "",
     quizImg: "",
     firstAnswer: "",
@@ -36,7 +38,7 @@ const CreatePage = () => {
     timeLimit: "5 seconds",
   };
   const handleChange = (e) => {
-    setQuiz({ ...quiz, [e.target.name]: e.target.value });
+    setQuiz({ ...quiz, id: uuidv4(), [e.target.name]: e.target.value });
   };
 
   const handleChangeFile = (e) => {
@@ -44,7 +46,6 @@ const CreatePage = () => {
   };
 
   const addQuiz = (e) => {
-    e.preventDefault();
     if (
       quiz.quiz &&
       quiz.quizImg &&
@@ -54,15 +55,15 @@ const CreatePage = () => {
       quiz.fourthAnswer
     ) {
       setQuizs([...quizs, quiz]);
-    }else{
-      alert("Please insert data...")
+    } else {
+      alert("Please insert data...");
     }
 
     console.log("quiz", quiz);
   };
 
-  const saveQuiz = ()=>{
-    e.preventDefault();
+  const saveQuiz = (e) => {
+    // e.preventDefault();
     if (
       quiz.quiz &&
       quiz.quizImg &&
@@ -70,13 +71,13 @@ const CreatePage = () => {
       quiz.secondAnswer &&
       quiz.thirdAnswer &&
       quiz.fourthAnswer
-    ){
-      addQuiz()
-      navigate("/main")
-    }else{
-      alert("Insert data...")
+    ) {
+      addQuiz();
+      navigate("/main");
+    } else {
+      alert("Please insert data...");
     }
-  }
+  };
 
   const handleClear = () => {
     setQuiz(emplyQuiz);
@@ -209,7 +210,9 @@ const CreatePage = () => {
               onChange={handleChange}
             >
               <option value="quiz">Quiz</option>
-              <option value="truefalse" disabled>True or False</option>
+              <option value="truefalse" disabled>
+                True or False
+              </option>
             </select>
             <div className="quiz_line"></div>
             <label>
@@ -258,9 +261,9 @@ const CreatePage = () => {
             <button className="btn_delete" onClick={handleClear}>
               Delete
             </button>
-              <button className="btn_save" onClick={saveQuiz}>
-                Save
-              </button>
+            <button className="btn_save" onClick={saveQuiz}>
+              Save
+            </button>
           </div>
         </div>
       </div>

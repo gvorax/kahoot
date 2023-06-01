@@ -16,6 +16,7 @@ export function UserContextProvider({ children }) {
   });
   const [quizs, setQuizs] = useState([
     {
+      id:1,
       quiz: "Bu qaysi logo",
       quizImg: "",
       firstAnswer: "BMW",
@@ -28,6 +29,7 @@ export function UserContextProvider({ children }) {
     },
   ]);
 
+  console.log("quizs",quizs)
   return (
     <UserContext.Provider
       value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs}}

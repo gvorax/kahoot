@@ -4,7 +4,7 @@
 }
 
 .quiz_item {
-    margin-top: 20px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,34 +15,40 @@
   border-radius: 10px;
 }
 
-.quiz_head{
-    display: flex;
-    align-items: center;
-    
+.quiz_head {
+  display: flex;
+  align-items: center;
 }
-.quiz_head p{
-    margin: 0;
-    margin-left: 18px;
-    color: rgb(97, 97, 97);
-    font-size: 20px;
-    text-decoration: none;
-    font-family: "JetBrains Mono";
-    font-style: normal;
-    font-weight: 500;
+.quiz_head p {
+  margin: 0;
+  margin-left: 18px;
+  color: rgb(97, 97, 97);
+  font-size: 20px;
+  text-decoration: none;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
 }
 
-.btns{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+.btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
-.btns button{
-    padding: 10px 20px;
-    border: none;
-    font-size: 20px;
-    text-decoration: none;
-    font-family: "JetBrains Mono";
-    font-style: normal;
-    font-weight: 500;
+.btns button {
+  padding: 10px 20px;
+  border: none;
+  font-size: 20px;
+  text-decoration: none;
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.red {
+  background-color: red;
 }
