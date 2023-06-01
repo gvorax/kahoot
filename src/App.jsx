@@ -13,6 +13,7 @@ import Home from "./components/home/Home";
 import AddNews from "./components/addNews/AddNews";
 import HostWaiting from "./pages/hostWaiting/HostWaiting";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import GamePage from "./pages/GamePage/GamePage";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="addnews" element={<AddNews />} />
           </Route>
           <Route path="/hostwaiting/:number" element={<HostWaiting />} />
+          <Route path="/game/:number" element={<GamePage />} />
           <Route path="/createquiz" element={<CreatePage />} />
         </Route>
         <Route path="*" element={<p>There's nothing here: 404!</p>} />

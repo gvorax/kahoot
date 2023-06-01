@@ -4,10 +4,11 @@ import "./AllGames.css";
 import Image from "../../assets/mars-logo.png";
 import { useNavigate } from "react-router-dom";
 
+
 const AllGames = () => {
   const navigate = useNavigate();
   const { quizs, setQuizs } = useContext(UserContext);
-  
+
   const handleDelete = (id) => {
     let newQuizs = quizs.filter((item) => item.id != id);
     console.log("newQuiz", newQuizs);

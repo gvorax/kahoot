@@ -1,10 +1,14 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Image from '../../assets/mars-logo.png';
 import './HostWaiting.css';
 
 const HostWaiting = () => {
+  const navigate = useNavigate();
   let {number} = useParams();
+  const onGameStart = ()=>{
+    navigate(`/game/${number}`);
+  }
   return (
     <div className='main_bg' style={{position:"relative"}}>
       <div className='blur blur_add'>
@@ -21,7 +25,7 @@ const HostWaiting = () => {
           </div>
         </div>
         <div className="start_btn">
-          <button>Start</button>
+          <button onClick={onGameStart}>Start</button>
         </div>
       </div>
     </div>
