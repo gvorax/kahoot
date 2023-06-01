@@ -28,9 +28,17 @@ export function UserContextProvider({ children }) {
     },
   ]);
 
+  const [news, setNews] = useState([{
+    id: Date.now(),
+    news: "Chiroyli gullar",
+    quizImg: ""
+  }])
+
+  console.log(news)
+
   return (
     <UserContext.Provider
-      value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs }}
+      value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs , news, setNews }}
     >
       <div>{children}</div>
     </UserContext.Provider>
