@@ -73,6 +73,15 @@ export function UserContextProvider({ children }) {
     },
   ]);
 
+  const [news, setNews] = useState([{
+    id: Date.now(),
+    news: "Chiroyli gullar",
+    quizImg: ""
+  }])
+
+  console.log(news)
+
+ 
   const [check, setCheck] = useState(true);
   console.log("quizs", quizs);
 
@@ -87,7 +96,9 @@ export function UserContextProvider({ children }) {
         setQuizs,
         check,
         setCheck,
+        news, setNews 
       }}
+
     >
       <div>{children}</div>
     </UserContext.Provider>
