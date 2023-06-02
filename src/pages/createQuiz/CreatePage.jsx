@@ -8,9 +8,11 @@ import { CgShapeRhombus } from "react-icons/cg";
 import { BsFillTriangleFill } from "react-icons/bs";
 import { useContext } from "react";
 import { UserContext } from "../../context/useContext";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 const CreatePage = () => {
+  const [err, setErr] = useState(false);
   const navigate = useNavigate();
   const { quizs, setQuizs } = useContext(UserContext);
   const [quiz, setQuiz] = useState({
@@ -23,6 +25,11 @@ const CreatePage = () => {
     correctAnswer: "answer1",
     quizType: "quiz",
     timeLimit: "5 seconds",
+  });
+  const [quizOne, setQuizOne] = useState({
+    id: undefined,
+    quizs: [],
+    gamePin: undefined,
   });
   const emplyQuiz = {
     quiz: "",
@@ -43,8 +50,11 @@ const CreatePage = () => {
     setQuiz({ ...quiz, [e.target.name]: e.target.files[0] });
   };
 
+  const handleClear = () => {
+    setQuiz(emplyQuiz);
+  };
+
   const addQuiz = (e) => {
-    e.preventDefault();
     if (
       quiz.quiz &&
       quiz.quizImg &&
@@ -53,36 +63,33 @@ const CreatePage = () => {
       quiz.thirdAnswer &&
       quiz.fourthAnswer
     ) {
-      setQuizs([...quizs, quiz]);
-    }else{
-      alert("Please insert data...")
+      quizOne.quizs.push(quiz);
+      setQuiz(emplyQuiz);
+      setErr(false);
+    } else {
+      alert("Please insert data...");
+      setErr(true);
     }
-
-    console.log("quiz", quiz);
   };
 
-  const saveQuiz = ()=>{
+  const saveQuiz = (e) => {
+    let id = uuidv4();
+    addQuiz();
+    if (!err) {
+      const updated = Object.assign({}, quizOne, { id: id });
+      const updatedItem = [...quizs, updated];
+      setQuizs(updatedItem);
+      console.log("updatedItem",updatedItem);
+      navigate("/main");
+    }
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      quiz.quiz &&
-      quiz.quizImg &&
-      quiz.firstAnswer &&
-      quiz.secondAnswer &&
-      quiz.thirdAnswer &&
-      quiz.fourthAnswer
-    ){
-      addQuiz()
-      navigate("/main")
-    }else{
-      alert("Insert data...")
-    }
-  }
-
-  const handleClear = () => {
-    setQuiz(emplyQuiz);
   };
+
   return (
-    <form action="#">
+    <form action="#" onSubmit={handleSubmit}>
       <div className="box">
         <div className="box_1">
           <div className="quiz">
@@ -209,7 +216,9 @@ const CreatePage = () => {
               onChange={handleChange}
             >
               <option value="quiz">Quiz</option>
-              <option value="truefalse" disabled>True or False</option>
+              <option value="truefalse" disabled>
+                True or False
+              </option>
             </select>
             <div className="quiz_line"></div>
             <label>
@@ -258,9 +267,9 @@ const CreatePage = () => {
             <button className="btn_delete" onClick={handleClear}>
               Delete
             </button>
-              <button className="btn_save" onClick={saveQuiz}>
-                Save
-              </button>
+            <button className="btn_save" onClick={saveQuiz}>
+              Save
+            </button>
           </div>
         </div>
       </div>

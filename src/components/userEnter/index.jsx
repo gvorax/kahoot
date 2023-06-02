@@ -58,7 +58,7 @@ const Game = () => {
                 value={user.userName}
                 onChange={handleChange}
               />
-              <button className="btn">Enter</button>
+              <button className="btn_pin">Enter</button>
             </div>
           )}
         </form>

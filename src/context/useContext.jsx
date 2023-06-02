@@ -16,15 +16,60 @@ export function UserContextProvider({ children }) {
   });
   const [quizs, setQuizs] = useState([
     {
-      quiz: "Bu qaysi logo",
-      quizImg: "",
-      firstAnswer: "BMW",
-      secondAnswer: "Mersades",
-      thirdAnswer: "Bugatti",
-      fourthAnswer: "GM",
-      correctAnswer: "answer1",
-      quizType: "quiz",
-      timeLimit: "5 seconds",
+      id: 1,
+      quizs: [
+        {
+          quiz: "Bu qaysi logo",
+          quizImg: "",
+          firstAnswer: "BMW",
+          secondAnswer: "Mersades",
+          thirdAnswer: "Bugatti",
+          fourthAnswer: "GM",
+          correctAnswer: "answer1",
+          quizType: "quiz",
+          timeLimit: "5 seconds",
+        },
+        {
+          quiz: "Bu qaysi mashina",
+          quizImg: "",
+          firstAnswer: "BMW",
+          secondAnswer: "Mersades",
+          thirdAnswer: "Bugatti",
+          fourthAnswer: "GM",
+          correctAnswer: "answer1",
+          quizType: "quiz",
+          timeLimit: "5 seconds",
+        },
+      ],
+      quizNumber: undefined,
+    },
+    {
+      id: 2,
+      quizs: [
+        {
+          quiz: "Bu qaysi mashina",
+          quizImg: "",
+          firstAnswer: "BMW",
+          secondAnswer: "Mersades",
+          thirdAnswer: "Bugatti",
+          fourthAnswer: "GM",
+          correctAnswer: "answer1",
+          quizType: "quiz",
+          timeLimit: "5 seconds",
+        },
+        {
+          quiz: "Bu qaysi logo",
+          quizImg: "",
+          firstAnswer: "BMW",
+          secondAnswer: "Mersades",
+          thirdAnswer: "Bugatti",
+          fourthAnswer: "GM",
+          correctAnswer: "answer1",
+          quizType: "quiz",
+          timeLimit: "5 seconds",
+        },
+      ],
+      quizNumber: undefined,
     },
   ]);
 
@@ -36,9 +81,24 @@ export function UserContextProvider({ children }) {
 
   console.log(news)
 
+ 
+  const [check, setCheck] = useState(true);
+  console.log("quizs", quizs);
+
   return (
     <UserContext.Provider
-      value={{ user, setUser, hostUser, setHostUser, quizs, setQuizs , news, setNews }}
+      value={{
+        user,
+        setUser,
+        hostUser,
+        setHostUser,
+        quizs,
+        setQuizs,
+        check,
+        setCheck,
+        news, setNews 
+      }}
+
     >
       <div>{children}</div>
     </UserContext.Provider>
