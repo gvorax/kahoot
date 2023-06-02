@@ -4,10 +4,52 @@ import Image from "../../assets/userImage.png";
 import { MdQuiz, MdCircle, MdTimer } from "react-icons/md";
 import { BiImages, BiRectangle } from "react-icons/bi";
 import { CgShapeRhombus } from "react-icons/cg";
-import { BsFillTriangleFill } from "react-icons/bs";
+import { BsEmojiSmileUpsideDown, BsFillTriangleFill } from "react-icons/bs";
 import "./GamePage.css";
+import { useContext } from "react";
+import { UserContext } from "../../context/useContext";
+import { useEffect } from "react";
+import { useState } from "react";
 const GamePage = () => {
   const { params } = useParams();
+  const [savol, setSavol] = useState();
+  const { quizs } = useContext(UserContext);
+
+  useEffect(() => {
+    let data = quizs.map((item) => {
+      if (item.gameNumber === params) {
+        return item;
+      } else {
+        console.log("Ishlamayapti");
+      }
+      return null;
+    });
+
+    console.log("newData", data);
+
+    // const [data, setData] = useState([]);
+    // const [matchingObject, setMatchingObject] = useState(null);
+    // const number = 10;
+
+    // useEffect(() => {
+    //   const fetchData = async () => {
+    //     // Fetch data and store it in the data state
+    //     const response = await fetch('your-api-endpoint');
+    //     const responseData = await response.json();
+    //     setData(responseData);
+    //   };
+
+    //   fetchData();
+    // }, []);
+
+    // useEffect(() => {
+    //   if (number) {
+    //     const object = data.find(item => item.id === number);
+    //     setMatchingObject(object);
+    //   }
+    // }, [number, data]);
+  }, []);
+
   return (
     <div className="main_bg">
       <div className="blur blur_new">
@@ -62,14 +104,14 @@ const GamePage = () => {
                 <div className="shape green" style={{ color: "#fff" }}>
                   <BiRectangle size={40} />
                 </div>
-                  <p className="answer_user">Here is answer</p>
+                <p className="answer_user">Here is answer</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="skip">
-            <button className="shadow">Skip</button>
+          <button className="shadow">Skip</button>
         </div>
       </div>
     </div>
