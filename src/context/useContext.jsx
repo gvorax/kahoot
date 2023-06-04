@@ -79,11 +79,9 @@ export function UserContextProvider({ children }) {
     quizImg: ""
   }])
 
-  console.log(news)
 
  
-  const [check, setCheck] = useState(true);
-  console.log("quizs", quizs);
+  const [check, setCheck] = useState(false);
 
   return (
     <UserContext.Provider
